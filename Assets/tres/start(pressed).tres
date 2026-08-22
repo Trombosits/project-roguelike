@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://cb8bpgxjtqy6l"]
+
+[ext_resource type="Texture2D" uid="uid://btwcgnfmhsmfr" path="res://Assets/Button/StartButton-Sheet.png" id="1_6tuwy"]
+
+[resource]
+texture = ExtResource("1_6tuwy")
+region_rect = Rect2(157.85889, 32.04391, 72.38272, 25.657898)

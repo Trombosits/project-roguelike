@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://d2kmj6iab4vtx"]
+
+[ext_resource type="Texture2D" uid="uid://cl56d8by8r2tk" path="res://Assets/Button/Wrench.png" id="1_4ib77"]
+
+[resource]
+texture = ExtResource("1_4ib77")
+region_rect = Rect2(178.89957, 33.48284, 29.435303, 37.61045)

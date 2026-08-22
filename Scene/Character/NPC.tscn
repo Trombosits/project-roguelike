@@ -188,7 +188,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xxdcj")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -309,12 +309,13 @@ animations = [{
 radius = 125.25574
 
 [node name="NPC" type="CharacterBody2D" unique_id=1401486817]
+y_sort_enabled = true
 script = ExtResource("1_frji6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143629536]
 sprite_frames = SubResource("SpriteFrames_7wd2l")
-animation = &"hit"
-frame_progress = 0.5742052
+animation = &"move"
+frame_progress = 0.88437665
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1069531943]
 shape = SubResource("CapsuleShape2D_l8r1a")

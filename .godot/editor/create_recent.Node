@@ -1,0 +1,11 @@
+Button
+Control
+CanvasLayer
+Sprite2D
+Camera2D
+CollisionShape2D
+Area2D
+Label
+AnimationPlayer
+TextureProgressBar
+ProgressBar
