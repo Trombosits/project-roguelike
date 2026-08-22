@@ -517,6 +517,8 @@ radius = 33.01515
 
 [node name="Player" type="CharacterBody2D" unique_id=1999032543 groups=["player"]]
 y_sort_enabled = true
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_y8w33")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1395454524]
@@ -526,11 +528,9 @@ sprite_frames = SubResource("SpriteFrames_f8sc2")
 animation = &"Idle_Down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1491211425]
-visible = false
 shape = SubResource("CapsuleShape2D_frji6")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=192271217]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1853867272]
 shape = SubResource("CircleShape2D_7wd2l")

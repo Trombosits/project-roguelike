@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://b3s8eedjgsior"]
+
+[ext_resource type="Texture2D" uid="uid://cimoxmv50w0hm" path="res://Assets/Weapon/Boomerang-Sheet.png" id="1_ppifa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mogfc"]
+atlas = ExtResource("1_ppifa")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0711"]
+atlas = ExtResource("1_ppifa")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h37oa"]
+atlas = ExtResource("1_ppifa")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxtku"]
+atlas = ExtResource("1_ppifa")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fig5s"]
+atlas = ExtResource("1_ppifa")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwkne"]
+atlas = ExtResource("1_ppifa")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o68eg"]
+atlas = ExtResource("1_ppifa")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njpry"]
+atlas = ExtResource("1_ppifa")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sov8x"]
+atlas = ExtResource("1_ppifa")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7wd2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mogfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0711")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h37oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxtku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fig5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwkne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o68eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njpry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sov8x")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_owa6n"]
+radius = 19.104973
+
+[node name="Area2D" type="Area2D" unique_id=797962265]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1177771170]
+sprite_frames = SubResource("SpriteFrames_7wd2l")
+frame_progress = 0.043761525
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=346162070]
+position = Vector2(-4, -7)
+shape = SubResource("CircleShape2D_owa6n")
+
+[node name="Timer" type="Timer" parent="." unique_id=911802532]

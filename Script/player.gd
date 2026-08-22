@@ -23,7 +23,7 @@ var is_attacking: bool = false
 
 func _ready() -> void:
 	health = max_health
-	add_to_group("player")
+	#add_to_group("player")
 
 func take_damage(amount: float) -> void:
 	health = max(0.0, health - amount)
@@ -33,7 +33,8 @@ func take_damage(amount: float) -> void:
 		die()
 
 func die() -> void:
-	# Logika saat anak kucing kelelahan / game over
+	# Pindah ke scene Game Over menggunakan call_deferred agar aman saat physics process berjalan
+	get_tree().call_deferred("change_scene_to_file", "res://Scene/Menu/gameOver.tscn")
 	queue_free()
 
 func _physics_process(delta: float) -> void:
@@ -60,6 +61,7 @@ func attack() -> void:
 	var overlapping_bodies = attack_area.get_overlapping_bodies()
 	for body in overlapping_bodies:
 		if body != self and body.has_method("take_damage"):
+			# Pastikan parameter yang dikirim sesuai dengan fungsi take_damage musuh
 			body.take_damage(attack_damage, global_position)
 
 	await get_tree().create_timer(0.3).timeout

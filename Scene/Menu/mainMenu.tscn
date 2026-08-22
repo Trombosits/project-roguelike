@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b7b3djbi447ky"]
 
+[ext_resource type="Script" uid="uid://c5ytk7obrxpar" path="res://Script/main_menu.gd" id="1_7jv20"]
 [ext_resource type="Texture2D" uid="uid://ci31mislw5bpa" path="res://Assets/Title/Title.png" id="1_gjlcp"]
 [ext_resource type="StyleBox" uid="uid://cysf1fq3f2q5" path="res://Assets/tres/start.tres" id="2_ia1vu"]
 [ext_resource type="StyleBox" uid="uid://cb8bpgxjtqy6l" path="res://Assets/tres/start(pressed).tres" id="3_n3vr4"]
@@ -16,6 +17,7 @@ texture = ExtResource("7_akae4")
 region_rect = Rect2(285.82385, 33.791912, 72.37906, 23.328625)
 
 [node name="mainMenu" type="CanvasLayer" unique_id=395628767]
+script = ExtResource("1_7jv20")
 
 [node name="Title" type="Sprite2D" parent="." unique_id=2028152219]
 position = Vector2(531, 621)
@@ -66,3 +68,6 @@ scale = Vector2(5, 5)
 theme_override_styles/normal = ExtResource("8_4i55p")
 theme_override_styles/pressed = ExtResource("9_7jv20")
 theme_override_styles/hover = ExtResource("10_4joc1")
+
+[connection signal="pressed" from="Button/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button/Exit" to="." method="_on_exit_pressed"]

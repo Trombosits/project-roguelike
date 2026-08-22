@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://con0p5njlnm1e" path="res://Assets/Character/Mouse/mouse(dead)-Sheet.png" id="2_d8koq"]
 [ext_resource type="Texture2D" uid="uid://fno7rpxye8sm" path="res://Assets/Character/Mouse/mouse(hit)-Sheet.png" id="3_na6hw"]
 [ext_resource type="Texture2D" uid="uid://7r3h2kirb08n" path="res://Assets/Character/Mouse/mouse-Sheet.png" id="4_kllmx"]
+[ext_resource type="Script" uid="uid://t57w42fskbhw" path="res://Script/aim.gd" id="5_na6hw"]
+[ext_resource type="PackedScene" uid="uid://chc7yb8x2tcwu" path="res://Scene/Projectiles/bullets.tscn" id="6_kllmx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2ydv"]
 atlas = ExtResource("2_d8koq")
@@ -114,7 +116,10 @@ radius = 125.25574
 
 [node name="NPC" type="CharacterBody2D" unique_id=1401486817]
 y_sort_enabled = true
+collision_layer = 4
+collision_mask = 6
 script = ExtResource("1_d8koq")
+attack_range = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143629536]
 scale = Vector2(2, 2)
@@ -124,16 +129,30 @@ animation = &"idle_move"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1069531943]
 shape = SubResource("CapsuleShape2D_l8r1a")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1833978349 groups=["player"]]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1833978349]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2023921412]
 shape = SubResource("CapsuleShape2D_k0gpf")
 
-[node name="DetectionArea" type="Area2D" parent="." unique_id=987932100 groups=["player"]]
+[node name="DetectionArea" type="Area2D" parent="." unique_id=987932100]
+visible = false
+light_mask = 2
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=691106587]
 shape = SubResource("CircleShape2D_me511")
 
+[node name="Aim" type="Node2D" parent="." unique_id=1456778175]
+script = ExtResource("5_na6hw")
+ammo = ExtResource("6_kllmx")
+
+[node name="RayCast2D" type="RayCast2D" parent="Aim" unique_id=717069990]
+collision_mask = 2
+
+[node name="Timer" type="Timer" parent="Aim" unique_id=1942894510]
+wait_time = 2.0
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_entered"]
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -8,7 +8,7 @@ extends Node2D
 @export var npc4_scene: PackedScene = preload("res://Scene/Character/NPC4.tscn")
 @export var spawn_min: Vector2 = Vector2(50, 50)
 @export var spawn_max: Vector2 = Vector2(800, 500)
-@export var total_npc: int = 5
+@export var total_npc: int = 35
 
 # --- NODE REFERENCES ---
 @onready var player: CharacterBody2D = $Player2D
