@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ci31mislw5bpa" path="res://Assets/Title/Title.png" id="1_6rfy7"]
 [ext_resource type="Script" uid="uid://biey588urxhk4" path="res://Script/game_over.gd" id="1_7knf2"]
 [ext_resource type="StyleBox" uid="uid://cysf1fq3f2q5" path="res://Assets/tres/start.tres" id="2_7knf2"]
+[ext_resource type="Texture2D" uid="uid://c8hjgdwkmy40v" path="res://Assets/Background/MenuBG.png" id="2_fcelc"]
 [ext_resource type="StyleBox" uid="uid://cb8bpgxjtqy6l" path="res://Assets/tres/start(pressed).tres" id="3_fcelc"]
 [ext_resource type="StyleBox" uid="uid://j68jxvj6cglt" path="res://Assets/tres/start(highlight).tres" id="4_cqvnh"]
 [ext_resource type="StyleBox" uid="uid://dmxrmax2dkig1" path="res://Assets/tres/exit(normal).tres" id="5_x2kf2"]
@@ -18,6 +19,14 @@ region_rect = Rect2(285.82385, 33.791912, 72.37906, 23.328625)
 
 [node name="gameOver" type="CanvasLayer" unique_id=395628767]
 script = ExtResource("1_7knf2")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1262063922]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fcelc")
 
 [node name="Title" type="Sprite2D" parent="." unique_id=2028152219]
 position = Vector2(531, 621)
