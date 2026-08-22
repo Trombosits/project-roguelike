@@ -1,2 +1,2 @@
 res://Scene/Menu/mainMenu.tscn
-res://Scene/Menu/gameOver.tscn
+res://Script/DamageText.gd
