@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgyjdmer4qvio"]
 
 [ext_resource type="Texture2D" uid="uid://ci31mislw5bpa" path="res://Assets/Title/Title.png" id="1_6rfy7"]
-[ext_resource type="Script" uid="uid://biey588urxhk4" path="res://Script/game_over.gd" id="1_7knf2"]
+[ext_resource type="Script" uid="uid://biey588urxhk4" path="res://Script/Menu/game_over.gd" id="1_7knf2"]
 [ext_resource type="StyleBox" uid="uid://cysf1fq3f2q5" path="res://Assets/tres/start.tres" id="2_7knf2"]
 [ext_resource type="Texture2D" uid="uid://c8hjgdwkmy40v" path="res://Assets/Background/MenuBG.png" id="2_fcelc"]
 [ext_resource type="StyleBox" uid="uid://cb8bpgxjtqy6l" path="res://Assets/tres/start(pressed).tres" id="3_fcelc"]
@@ -12,6 +12,7 @@
 [ext_resource type="StyleBox" uid="uid://bs4bp2f1p6mb8" path="res://Assets/tres/Wrench(normal).tres" id="8_4nowe"]
 [ext_resource type="StyleBox" uid="uid://d2kmj6iab4vtx" path="res://Assets/tres/Wrench(clicked).tres" id="9_amupe"]
 [ext_resource type="StyleBox" uid="uid://bgysms4tt7803" path="res://Assets/tres/wrench(hover).tres" id="10_rp411"]
+
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pn3g7"]
 texture = ExtResource("7_vupjl")

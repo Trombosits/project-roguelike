@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://b7u2tjvgub1n5"]
 
-[ext_resource type="Script" uid="uid://ckwvpml2spjnf" path="res://Script/npc.gd" id="1_frji6"]
+[ext_resource type="Script" uid="uid://ckwvpml2spjnf" path="res://Script/Character/npc.gd" id="1_frji6"]
 [ext_resource type="Texture2D" uid="uid://cbpa2o74htfb8" path="res://Assets/Character/Slimes/Slimes(Hit).png" id="2_k0gpf"]
 [ext_resource type="Texture2D" uid="uid://csd4pvnkb7vaa" path="res://Assets/Character/Slimes/Slimes(Death).png" id="2_me511"]
+[ext_resource type="PackedScene" uid="uid://blspav8jtkuac" path="res://Scene/Loot/experience.tscn" id="2_qy2v3"]
 [ext_resource type="Texture2D" uid="uid://bwnhxuhtj0byo" path="res://Assets/Character/Slimes/Slime.png" id="3_k0gpf"]
-[ext_resource type="Script" uid="uid://t57w42fskbhw" path="res://Script/aim.gd" id="5_v6cdp"]
+[ext_resource type="Script" uid="uid://t57w42fskbhw" path="res://Script/Shoots/aim.gd" id="5_v6cdp"]
 [ext_resource type="PackedScene" uid="uid://chc7yb8x2tcwu" path="res://Scene/Projectiles/bullets.tscn" id="6_rmser"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_geuep"]
@@ -307,14 +308,13 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0gpf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_me511"]
-radius = 125.25574
-
 [node name="NPC" type="CharacterBody2D" unique_id=1401486817]
 y_sort_enabled = true
+collision_layer = 5
 collision_mask = 2
 script = ExtResource("1_frji6")
 attack_range = 0.0
+exp_gem_scene = ExtResource("2_qy2v3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143629536]
 sprite_frames = SubResource("SpriteFrames_7wd2l")
@@ -331,14 +331,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2023921412]
 shape = SubResource("CapsuleShape2D_k0gpf")
 
-[node name="DetectionArea" type="Area2D" parent="." unique_id=987932100]
-visible = false
-collision_layer = 4
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=691106587]
-shape = SubResource("CircleShape2D_me511")
-
 [node name="Aim" type="Node2D" parent="." unique_id=1909101481]
 script = ExtResource("5_v6cdp")
 ammo = ExtResource("6_rmser")
@@ -349,4 +341,9 @@ collision_mask = 2
 [node name="Timer" type="Timer" parent="Aim" unique_id=1376477387]
 wait_time = 2.0
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=632712878]
+rect = Rect2(-16, -15, 32, 31)
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

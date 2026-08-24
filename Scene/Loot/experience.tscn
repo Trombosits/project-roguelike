@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://blspav8jtkuac"]
+
+[ext_resource type="Script" uid="uid://b3muyipqfd7n7" path="res://Script/Loot/experience.gd" id="1_4h3mk"]
+[ext_resource type="Texture2D" uid="uid://dth2raeecj4lu" path="res://Assets/Loot/experience.png" id="2_4h3mk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(26, 25)
+
+[node name="experience" type="Area2D" unique_id=1654884220]
+collision_mask = 2
+script = ExtResource("1_4h3mk")
+
+[node name="expSprite" type="Sprite2D" parent="." unique_id=1386195517]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4h3mk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1362957726]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_4kxuq")
