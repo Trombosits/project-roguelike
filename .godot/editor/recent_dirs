@@ -1,3 +1,9 @@
+res://Assets/Card/
+res://Script/Menu/
+res://Script/Weapon/
+res://Scene/Weapon/
+res://Assets/Weapon/
+res://Scene/Menu/
 res://Script/UI/
 res://Script/Global/
 res://Assets/Loot/
@@ -8,15 +14,9 @@ res://Scene/UI/
 res://Script/Breakables/
 res://Scene/Breakables/
 res://Assets/Breakables/
-res://Script/Weapon/
 res://Script/
 res://Scene/
 res://
 res://Assets/Background/
-res://Scene/Weapon/
-res://Assets/Weapon/
-res://Scene/Menu/
 res://Scene/Projectiles/
 res://Assets/tres/
-res://Assets/Button/
-res://Assets/Title/

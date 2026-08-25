@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b4enk4v44bb8d" path="res://Script/Character/player.gd" id="1_y8w33"]
 [ext_resource type="Texture2D" uid="uid://d17gu86adcsp3" path="res://Assets/Character/Cats/black_4.png" id="2_087al"]
+[ext_resource type="PackedScene" uid="uid://c7hcbp5mn20d8" path="res://Scene/Weapon/furrball.tscn" id="3_0ov3f"]
+[ext_resource type="PackedScene" uid="uid://gbwrcesypeeb" path="res://Scene/Weapon/raygun.tscn" id="3_g5did"]
 [ext_resource type="Script" uid="uid://ei0rsq2mapce" path="res://Script/Weapon/weapon_pivot.gd" id="3_mckv8"]
 [ext_resource type="PackedScene" uid="uid://b3s8eedjgsior" path="res://Scene/Weapon/Boomerang.tscn" id="4_g5did"]
 
@@ -519,7 +521,11 @@ y_sort_enabled = true
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_y8w33")
+starting_weapon = 2
 boomerang_scene = ExtResource("4_g5did")
+furrball_scene = ExtResource("3_0ov3f")
+furrball_spawn_rate = 1.0
+raygun_scene = ExtResource("3_g5did")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1395454524]
 position = Vector2(-9.536743e-07, 0)

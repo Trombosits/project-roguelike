@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dq6q2wag4bukl" path="res://Scene/Character/player.tscn" id="1_sblpm"]
 [ext_resource type="PackedScene" uid="uid://d3kfaq8a6n67" path="res://Scene/Breakables/Breakables.tscn" id="2_3amdw"]
 [ext_resource type="Texture2D" uid="uid://dhui8n63ub8da" path="res://Assets/HealthBar/healthbar-Sheet.png" id="3_r34rm"]
-[ext_resource type="Script" uid="uid://l3xyjensqy83" path="res://Script/UI/exp_bar.gd" id="4_0sxm5"]
 [ext_resource type="FontFile" uid="uid://csmbxujwlcspk" path="res://Assets/Font/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-ja.otf" id="4_2wwxx"]
 [ext_resource type="Script" uid="uid://wi748pw0iq7v" path="res://Script/UI/catnip_label.gd" id="6_1xcnr"]
 [ext_resource type="Texture2D" uid="uid://bhut6ixwcdep8" path="res://Assets/Loot/Weed-Sheet.png" id="7_ow1sv"]
@@ -53,19 +52,13 @@ animations = [{
 [node name="Main" type="Node2D" unique_id=167824792]
 y_sort_enabled = true
 script = ExtResource("1_r34rm")
-spawn_max = Vector2(800, 1000)
+spawn_max = Vector2(800, 800)
+total_npc = 500
 breakable_scene = ExtResource("2_3amdw")
 
 [node name="Player2D" parent="." unique_id=1999032543 instance=ExtResource("1_sblpm")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1041795102]
-
-[node name="expBar" type="ProgressBar" parent="CanvasLayer" unique_id=661832979]
-offset_left = 5.0
-offset_top = 621.0
-offset_right = 1151.0
-offset_bottom = 648.0
-script = ExtResource("4_0sxm5")
 
 [node name="FpsLabel" type="Label" parent="CanvasLayer" unique_id=1781025452]
 offset_left = 147.0
@@ -118,4 +111,5 @@ autoplay = "default"
 
 [node name="ObjectPool" type="Node2D" parent="." unique_id=1467676176]
 script = ExtResource("8_75buv")
-enemy_scenes = Array[PackedScene]([ExtResource("9_mxd2g"), ExtResource("10_0sxm5"), ExtResource("11_hspdg"), ExtResource("12_j63at")])
+enemy_scenes = Array[PackedScene]([ExtResource("10_0sxm5"), ExtResource("11_hspdg"), ExtResource("12_j63at"), ExtResource("9_mxd2g")])
+pool_size = 200

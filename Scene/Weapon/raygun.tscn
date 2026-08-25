@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://gbwrcesypeeb"]
+
+[ext_resource type="Texture2D" uid="uid://clm5tov4ywtxi" path="res://Assets/Weapon/Laser(1).png" id="1_ppm86"]
+[ext_resource type="Script" uid="uid://cku1icjqrdgtq" path="res://Script/Weapon/raygun.gd" id="1_xya1j"]
+[ext_resource type="Texture2D" uid="uid://bpfu2w08pbjfp" path="res://Assets/Weapon/Laser(2).png" id="2_xya1j"]
+[ext_resource type="Texture2D" uid="uid://dvowfc4155g78" path="res://Assets/Weapon/Laser(3).png" id="3_6k7u0"]
+[ext_resource type="Texture2D" uid="uid://da02vh17a865u" path="res://Assets/Weapon/Laser(4).png" id="4_6wuuq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_big0v"]
+atlas = ExtResource("1_ppm86")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0vab"]
+atlas = ExtResource("2_xya1j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5048"]
+atlas = ExtResource("3_6k7u0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iamio"]
+atlas = ExtResource("4_6wuuq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7wd2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_big0v")
+}],
+"loop": 1,
+"name": &"laser1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0vab")
+}],
+"loop": 1,
+"name": &"laser2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5048")
+}],
+"loop": 1,
+"name": &"laser3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iamio")
+}],
+"loop": 1,
+"name": &"laser4",
+"speed": 5.0
+}]
+
+[node name="RayGun" type="Area2D" unique_id=179428938]
+collision_mask = 5
+script = ExtResource("1_xya1j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=600871275]
+sprite_frames = SubResource("SpriteFrames_7wd2l")
+animation = &"laser4"
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1729264838]
+position = Vector2(0, -3)
+target_position = Vector2(198, -1)
+collision_mask = 5
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1332631179]
+points = PackedVector2Array(31, -4, 201, -4)
+width = 3.0
+default_color = Color(0.86025035, 0, 0.24401405, 1)

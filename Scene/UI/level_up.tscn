@@ -1,11 +1,41 @@
 [gd_scene format=3 uid="uid://6ojdeedbs2tp"]
 
+[ext_resource type="Texture2D" uid="uid://de7qj6ogpc3ww" path="res://Assets/Card/card.png" id="1_4mdrs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ov3f"]
+texture = ExtResource("1_4mdrs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8r1a"]
+texture = ExtResource("1_4mdrs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_684qh"]
+texture = ExtResource("1_4mdrs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3b0n3"]
+texture = ExtResource("1_4mdrs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1gq1f"]
+texture = ExtResource("1_4mdrs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjiol"]
+texture = ExtResource("1_4mdrs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j4cpi"]
+texture = ExtResource("1_4mdrs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x044r"]
+texture = ExtResource("1_4mdrs")
+
 [node name="LevelUp" type="CanvasLayer" unique_id=1462988932]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=66081342]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.4392157)
@@ -25,12 +55,21 @@ grow_vertical = 2
 
 [node name="Card1" type="Button" parent="HBoxContainer" unique_id=180844571]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_0ov3f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l8r1a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_684qh")
 text = "Boomerang"
 
 [node name="Card2" type="Button" parent="HBoxContainer" unique_id=649730888]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_3b0n3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1gq1f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xjiol")
 text = "Laser"
 
 [node name="Card3" type="Button" parent="HBoxContainer" unique_id=997446959]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_j4cpi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l8r1a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x044r")
 text = "Furr Ball"
