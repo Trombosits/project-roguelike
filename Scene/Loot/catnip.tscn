@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dnfnvmtd22r2y"]
+
+[ext_resource type="Script" uid="uid://bdtxbwe6oj688" path="res://Script/Loot/catnip.gd" id="1_cinvd"]
+[ext_resource type="Texture2D" uid="uid://bhut6ixwcdep8" path="res://Assets/Loot/Weed-Sheet.png" id="1_m1sr3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cinvd"]
+atlas = ExtResource("1_m1sr3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyswv"]
+atlas = ExtResource("1_m1sr3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7302"]
+atlas = ExtResource("1_m1sr3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efg8p"]
+atlas = ExtResource("1_m1sr3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cinvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyswv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7302")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efg8p")
+}],
+"loop": 1,
+"name": &"default_catnip",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nyxh"]
+size = Vector2(50, 51)
+
+[node name="catnip" type="Area2D" unique_id=1539536435]
+collision_mask = 2
+script = ExtResource("1_cinvd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1253557188]
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+animation = &"default_catnip"
+autoplay = "default_catnip"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297258589]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_7nyxh")

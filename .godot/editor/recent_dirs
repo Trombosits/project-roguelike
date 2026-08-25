@@ -1,17 +1,22 @@
-res://Script/
-res://Assets/Background/
+res://Script/UI/
+res://Script/Global/
+res://Assets/Loot/
+res://Assets/Font/Fusion Pixel 10px Monospaced/
+res://Script/Loot/
+res://Scene/Loot/
 res://Scene/UI/
+res://Script/Breakables/
+res://Scene/Breakables/
+res://Assets/Breakables/
+res://Script/Weapon/
+res://Script/
+res://Scene/
+res://
+res://Assets/Background/
 res://Scene/Weapon/
 res://Assets/Weapon/
 res://Scene/Menu/
 res://Scene/Projectiles/
-res://
 res://Assets/tres/
 res://Assets/Button/
 res://Assets/Title/
-res://Assets/Character/Scarecrow/
-res://Assets/Character/Mouse/
-res://Assets/Character/Eyes/
-res://Assets/Font/Fusion Pixel 10px Monospaced/
-res://Assets/HealthBar/
-res://Assets/Character/Cats/

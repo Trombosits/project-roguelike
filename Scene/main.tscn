@@ -1,17 +1,85 @@
 [gd_scene format=3 uid="uid://dfv0tbt8367q3"]
 
-[ext_resource type="Script" uid="uid://d0fxuf1mkuq4n" path="res://Script/randomize.gd" id="1_r34rm"]
+[ext_resource type="Script" uid="uid://d0fxuf1mkuq4n" path="res://Script/Global/randomize.gd" id="1_r34rm"]
 [ext_resource type="PackedScene" uid="uid://dq6q2wag4bukl" path="res://Scene/Character/player.tscn" id="1_sblpm"]
+[ext_resource type="PackedScene" uid="uid://d3kfaq8a6n67" path="res://Scene/Breakables/Breakables.tscn" id="2_3amdw"]
 [ext_resource type="Texture2D" uid="uid://dhui8n63ub8da" path="res://Assets/HealthBar/healthbar-Sheet.png" id="3_r34rm"]
+[ext_resource type="Script" uid="uid://l3xyjensqy83" path="res://Script/UI/exp_bar.gd" id="4_0sxm5"]
 [ext_resource type="FontFile" uid="uid://csmbxujwlcspk" path="res://Assets/Font/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-ja.otf" id="4_2wwxx"]
+[ext_resource type="Script" uid="uid://wi748pw0iq7v" path="res://Script/UI/catnip_label.gd" id="6_1xcnr"]
+[ext_resource type="Texture2D" uid="uid://bhut6ixwcdep8" path="res://Assets/Loot/Weed-Sheet.png" id="7_ow1sv"]
+[ext_resource type="Script" uid="uid://bdsmmjbr2lxn2" path="res://Script/Global/object_pool.gd" id="8_75buv"]
+[ext_resource type="PackedScene" uid="uid://b7u2tjvgub1n5" path="res://Scene/Character/NPC.tscn" id="9_mxd2g"]
+[ext_resource type="PackedScene" uid="uid://d3x4toum33ubk" path="res://Scene/Character/NPC2.tscn" id="10_0sxm5"]
+[ext_resource type="PackedScene" uid="uid://cl4ky45cwfm21" path="res://Scene/Character/NPC3.tscn" id="11_hspdg"]
+[ext_resource type="PackedScene" uid="uid://cd5fdolkmqelm" path="res://Scene/Character/NPC4.tscn" id="12_j63at"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow1sv"]
+atlas = ExtResource("7_ow1sv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75buv"]
+atlas = ExtResource("7_ow1sv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2iwn"]
+atlas = ExtResource("7_ow1sv")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pt4j"]
+atlas = ExtResource("7_ow1sv")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow1sv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75buv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2iwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pt4j")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Main" type="Node2D" unique_id=167824792]
 y_sort_enabled = true
 script = ExtResource("1_r34rm")
+spawn_max = Vector2(800, 1000)
+breakable_scene = ExtResource("2_3amdw")
 
 [node name="Player2D" parent="." unique_id=1999032543 instance=ExtResource("1_sblpm")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1041795102]
+
+[node name="expBar" type="ProgressBar" parent="CanvasLayer" unique_id=661832979]
+offset_left = 5.0
+offset_top = 621.0
+offset_right = 1151.0
+offset_bottom = 648.0
+script = ExtResource("4_0sxm5")
+
+[node name="FpsLabel" type="Label" parent="CanvasLayer" unique_id=1781025452]
+offset_left = 147.0
+offset_top = 27.0
+offset_right = 187.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("4_2wwxx")
+
+[node name="NpcCount" type="Label" parent="CanvasLayer" unique_id=1370467898]
+offset_left = 142.0
+offset_top = 1.0
+offset_right = 182.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("4_2wwxx")
 
 [node name="HealthBarSprite" type="Sprite2D" parent="CanvasLayer" unique_id=1567315623]
 position = Vector2(74, 218)
@@ -28,3 +96,26 @@ theme_override_fonts/font = ExtResource("4_2wwxx")
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CatnipUi" type="CanvasLayer" parent="CanvasLayer" unique_id=468340868 groups=["catnip_ui"]]
+visible = false
+script = ExtResource("6_1xcnr")
+
+[node name="CatnipLabel" type="Label" parent="CanvasLayer/CatnipUi" unique_id=1887452357]
+offset_left = 32.0
+offset_top = 171.0
+offset_right = 120.0
+offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("4_2wwxx")
+text = "30 S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="CanvasLayer/CatnipUi" unique_id=2053104066]
+position = Vector2(24, 178)
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+autoplay = "default"
+
+[node name="ObjectPool" type="Node2D" parent="." unique_id=1467676176]
+script = ExtResource("8_75buv")
+enemy_scenes = Array[PackedScene]([ExtResource("9_mxd2g"), ExtResource("10_0sxm5"), ExtResource("11_hspdg"), ExtResource("12_j63at")])

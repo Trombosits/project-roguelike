@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://kr4mx5cv2tl8"]
+
+[ext_resource type="Texture2D" uid="uid://bb82fiwf55qsx" path="res://Assets/Loot/Magnet-Sheet.png" id="1_mrqwh"]
+[ext_resource type="Script" uid="uid://sga0wabtdq7m" path="res://Script/Loot/magnet.gd" id="1_vml8i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vml8i"]
+atlas = ExtResource("1_mrqwh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snlne"]
+atlas = ExtResource("1_mrqwh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41uy8"]
+atlas = ExtResource("1_mrqwh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah0gl"]
+atlas = ExtResource("1_mrqwh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl8k5"]
+atlas = ExtResource("1_mrqwh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vml8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snlne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41uy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah0gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl8k5")
+}],
+"loop": 1,
+"name": &"default_magnet",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
+size = Vector2(33, 31)
+
+[node name="Magnet" type="Area2D" unique_id=1546238942]
+collision_mask = 2
+script = ExtResource("1_vml8i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1048811555]
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+animation = &"default_magnet"
+autoplay = "default_magnet"
+frame = 3
+frame_progress = 0.045018878
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=469280866]
+position = Vector2(-3.5, -3.5)
+shape = SubResource("RectangleShape2D_mti6b")

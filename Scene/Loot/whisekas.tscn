@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dljwlkevnt542"]
+
+[ext_resource type="Script" uid="uid://bmbhlb071ub71" path="res://Script/Loot/whisekas.gd" id="1_2i6xn"]
+[ext_resource type="Texture2D" uid="uid://ch4206sipmvof" path="res://Assets/Loot/Whisekas-Sheet.png" id="1_6xrsl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i6xn"]
+atlas = ExtResource("1_6xrsl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqfl5"]
+atlas = ExtResource("1_6xrsl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kveq5"]
+atlas = ExtResource("1_6xrsl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8131f"]
+atlas = ExtResource("1_6xrsl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i6xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqfl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kveq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8131f")
+}],
+"loop": 1,
+"name": &"default_Whisekas",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(24, 40)
+
+[node name="Whisekas" type="Area2D" unique_id=507637680]
+collision_mask = 2
+script = ExtResource("1_2i6xn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1295458390]
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+animation = &"default_Whisekas"
+autoplay = "default_Whisekas"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=737978906]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_4kxuq")

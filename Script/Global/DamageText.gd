@@ -1,8 +1,8 @@
 extends Node
 
-func display_number(value: int, position: Vector2):
+func display_number(value: int, pos: Vector2):
 	var number = Label.new()
-	number.global_position = position
+	number.global_position = pos
 	number.text = str(value)
 	number.z_index = 5
 	number.label_settings = LabelSettings.new()
@@ -21,11 +21,14 @@ func display_number(value: int, position: Vector2):
 	
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
+	
+	# PERBAIKAN: Gunakan "position:y" untuk properti Tween, dan number.position.y untuk nilainya
 	tween.tween_property(
-		number, "position_y", number.position_y - 24, 0.25
+		number, "position:y", number.position.y - 24, 0.25
 	).set_ease(Tween.EASE_OUT)
+	
 	tween.tween_property(
-		number, "position_y", number.position_y, 0.5
+		number, "position:y", number.position.y, 0.5
 	).set_ease(Tween.EASE_IN).set_delay(0.25)
 	
 	tween.tween_property(
@@ -34,4 +37,3 @@ func display_number(value: int, position: Vector2):
 	
 	await tween.finished
 	number.queue_free()
-	
