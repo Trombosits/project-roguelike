@@ -187,6 +187,7 @@ y_sort_enabled = true
 collision_layer = 5
 collision_mask = 6
 script = ExtResource("1_dg2i5")
+attack_cooldown = 2.0
 attack_range = 0.0
 exp_gem_scene = ExtResource("2_8fbuo")
 
@@ -212,7 +213,7 @@ ammo = ExtResource("6_un22f")
 [node name="RayCast2D" type="RayCast2D" parent="Aim" unique_id=461842532]
 collision_mask = 2
 
-[node name="Timer" type="Timer" parent="Aim" unique_id=564495044]
+[node name="Timer" type="Timer" parent="Aim" unique_id=564495044 groups=["enemies"]]
 wait_time = 2.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1508980612]

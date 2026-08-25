@@ -166,6 +166,7 @@ y_sort_enabled = true
 collision_layer = 5
 collision_mask = 6
 script = ExtResource("1_gtbtx")
+attack_cooldown = 2.0
 attack_range = 0.0
 exp_gem_scene = ExtResource("2_i1tks")
 

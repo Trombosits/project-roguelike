@@ -18,6 +18,7 @@ var player: Node2D = null
 var can_attack: bool = true
 
 func _ready() -> void:
+	add_to_group("enemies")
 	player = get_tree().get_first_node_in_group("player")
 	health = max_health
 
@@ -40,8 +41,6 @@ func reset_stats() -> void:
 		$CollisionShape2D.set_deferred("disabled", false)
 		
 	$AnimatedSprite2D.play("move")
-	
-	# MATIKAN physics_process secara bawaan saat baru direzet/spawn di luar layar
 	set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
@@ -74,9 +73,12 @@ func _physics_process(delta: float) -> void:
 
 # --- LOGIKA SERANGAN & COOLDOWN ---
 func deal_damage_to_player() -> void:
+	if dead:
+		return
+		
 	if player and player.has_method("take_damage") and can_attack:
 		can_attack = false
-		player.take_damage(attack_damage) # Perbaikan: Tambahkan pengurangan darah player
+		player.take_damage(attack_damage)
 		
 		await get_tree().create_timer(attack_cooldown).timeout
 		can_attack = true
@@ -107,12 +109,17 @@ func play_hit_animation(knockback_dir: Vector2) -> void:
 	await get_tree().create_timer(0.2).timeout
 	is_hit = false
 
+# --- LOGIKA KEMATIAN NPC (DIPERBAIKI) ---
 func death() -> void:
+	if dead:
+		return
+		
 	dead = true
+	can_attack = false # Hentikan kemampuan menyerang seketika
 	velocity = Vector2.ZERO
 	$AnimatedSprite2D.play("death")
 	
-	# Matikan semua kolisi agar tidak menyerang/tertembak saat animasi mati
+	# Matikan semua kolisi
 	if has_node("DetectionArea/CollisionShape2D"):
 		$DetectionArea/CollisionShape2D.set_deferred("disabled", true)
 	if has_node("Hitbox/CollisionShape2D"):
@@ -120,15 +127,7 @@ func death() -> void:
 	if has_node("CollisionShape2D"):
 		$CollisionShape2D.set_deferred("disabled", true)
 
-func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	# Aktifkan kembali pergerakan saat monster masuk ke dalam layar
-	if not dead:
-		set_physics_process(true)
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	# Matikan pergerakan saat monster berada di luar layar
-	set_physics_process(false)
-
+	# Drop EXP Gem di sini
 	if exp_gem_scene != null:
 		var drop_count = randi_range(1, 4)
 		for i in range(drop_count):
@@ -137,8 +136,17 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 			gem.global_position = global_position + random_offset
 			get_tree().current_scene.call_deferred("add_child", gem)
 		
+	# Beri waktu animasi mati selesai sebelum dimasukkan kembali ke pool
 	await get_tree().create_timer(1.0).timeout
 	
-	# Perbaikan Object Pooling: Sembunyikan & nonaktifkan, BUKAN queue_free()
+	# Sembunyikan dan nonaktifkan node
 	hide()
 	set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+
+# --- DISTANCE CULLING NOTIFIER (DIPERBAIKI) ---
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	if not dead:
+		set_physics_process(true)
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	set_physics_process(false)

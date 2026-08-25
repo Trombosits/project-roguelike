@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://c7hcbp5mn20d8"]
+
+[ext_resource type="Script" uid="uid://cf8h7hhis33y2" path="res://Script/Weapon/furrball.gd" id="1_wipsb"]
+[ext_resource type="Texture2D" uid="uid://der122pmjg73q" path="res://Assets/Weapon/FurrBall.png" id="1_wr5se"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wipsb"]
+atlas = ExtResource("1_wr5se")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_027eo"]
+atlas = ExtResource("1_wr5se")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7wd2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wipsb")
+}],
+"loop": 1,
+"name": &"default_furrball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_027eo")
+}],
+"loop": 0,
+"name": &"hit_furball",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_owa6n"]
+radius = 23.086792
+
+[node name="FurrBall" type="Area2D" unique_id=736702570 groups=["enemies"]]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_wipsb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1965831886]
+sprite_frames = SubResource("SpriteFrames_7wd2l")
+animation = &"default_furrball"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=570344953]
+shape = SubResource("CircleShape2D_owa6n")
+
+[node name="Timer" type="Timer" parent="." unique_id=725249024]
+wait_time = 2.0

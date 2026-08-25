@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 Global="*uid://bjnqgfc70qxki"
 DamageText="*uid://bh1kfyoy31tn"
-ExpBar="*uid://l3xyjensqy83"
 
 [display]
 
@@ -29,6 +28,7 @@ window/stretch/aspect="expand"
 [global_group]
 
 catnip_ui=""
+enemies=""
 
 [input]
 

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d2vio0w2i3ws3"]
+
+[ext_resource type="Script" uid="uid://do65fswp0adw7" path="res://Script/Menu/loading_screen.gd" id="1_bysu7"]
+[ext_resource type="Texture2D" uid="uid://c8hjgdwkmy40v" path="res://Assets/Background/MenuBG.png" id="1_kq7lr"]
+[ext_resource type="FontFile" uid="uid://csmbxujwlcspk" path="res://Assets/Font/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-ja.otf" id="2_bysu7"]
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1260973303]
+script = ExtResource("1_bysu7")
+
+[node name="Background" type="TextureRect" parent="." unique_id=659723371]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kq7lr")
+
+[node name="LoadingLabel" type="Label" parent="." unique_id=827485881]
+offset_left = 19.0
+offset_top = 563.0
+offset_right = 371.0
+offset_bottom = 628.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bysu7")
+theme_override_font_sizes/font_size = 64
+text = "Loading ..."
