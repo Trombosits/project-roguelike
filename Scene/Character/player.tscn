@@ -521,7 +521,6 @@ y_sort_enabled = true
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_y8w33")
-starting_weapon = 2
 boomerang_scene = ExtResource("4_g5did")
 furrball_scene = ExtResource("3_0ov3f")
 furrball_spawn_rate = 1.0
