@@ -1,10 +1,13 @@
+res://Assets/Button/
+res://Assets/Title/
+res://Assets/Tileset/
+res://Script/UI/
 res://Assets/Card/
 res://Script/Menu/
 res://Script/Weapon/
 res://Scene/Weapon/
 res://Assets/Weapon/
 res://Scene/Menu/
-res://Script/UI/
 res://Script/Global/
 res://Assets/Loot/
 res://Assets/Font/Fusion Pixel 10px Monospaced/
@@ -17,6 +20,3 @@ res://Assets/Breakables/
 res://Script/
 res://Scene/
 res://
-res://Assets/Background/
-res://Scene/Projectiles/
-res://Assets/tres/

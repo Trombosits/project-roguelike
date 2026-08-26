@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var damage: float = 100.0
+@export var damage: float = 30.0
 @export var fire_rate: float = 0.3        # Jeda tembakan (detik)
 @export var attack_range: float = 500.0     # Panjang maksimal jangkauan laser
 @export var laser_duration: float = 0.08   # Durasi kilatan garis laser di layar

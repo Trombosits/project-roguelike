@@ -1,3 +1,9 @@
+TileMapLayer
+Label
+TextureRect
+VBoxContainer
+MarginContainer
+Control
 Sprite2D
 Timer
 CollisionShape2D
@@ -5,10 +11,4 @@ AnimatedSprite2D
 Area2D
 Line2D
 RayCast2D
-Label
 CanvasLayer
-ProgressBar
-VisibleOnScreenNotifier2D
-Node2D
-Button
-HBoxContainer

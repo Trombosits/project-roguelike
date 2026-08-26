@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://bdkffh3grswys"]
+
+[ext_resource type="Texture2D" uid="uid://33qb4b8pmif2" path="res://Assets/Button/ExitButton-Sheet.png" id="1_4k7ol"]
+
+[resource]
+texture = ExtResource("1_4k7ol")
+region_rect = Rect2(69.1008, 22.81389, 54.344826, 19.382162)
+modulate_color = Color(0.32156864, 0.32156864, 0.32156864, 1)

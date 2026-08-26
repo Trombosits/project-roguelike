@@ -1,21 +1,17 @@
 [gd_scene format=3 uid="uid://b7b3djbi447ky"]
 
 [ext_resource type="Script" uid="uid://c5ytk7obrxpar" path="res://Script/Menu/main_menu.gd" id="1_7jv20"]
-[ext_resource type="Texture2D" uid="uid://ci31mislw5bpa" path="res://Assets/Title/Title.png" id="1_gjlcp"]
 [ext_resource type="Texture2D" uid="uid://c8hjgdwkmy40v" path="res://Assets/Background/MenuBG.png" id="2_4joc1"]
-[ext_resource type="StyleBox" uid="uid://cysf1fq3f2q5" path="res://Assets/tres/start.tres" id="2_ia1vu"]
-[ext_resource type="StyleBox" uid="uid://cb8bpgxjtqy6l" path="res://Assets/tres/start(pressed).tres" id="3_n3vr4"]
-[ext_resource type="StyleBox" uid="uid://j68jxvj6cglt" path="res://Assets/tres/start(highlight).tres" id="4_bvk1u"]
-[ext_resource type="StyleBox" uid="uid://dmxrmax2dkig1" path="res://Assets/tres/exit(normal).tres" id="5_n3vr4"]
-[ext_resource type="StyleBox" uid="uid://wusbswwdulib" path="res://Assets/tres/exit(clicked).tres" id="6_qk6at"]
-[ext_resource type="Texture2D" uid="uid://dpk48w5611nac" path="res://Assets/Button/ExitButton-Sheet.png" id="7_akae4"]
-[ext_resource type="StyleBox" uid="uid://bs4bp2f1p6mb8" path="res://Assets/tres/Wrench(normal).tres" id="8_4i55p"]
-[ext_resource type="StyleBox" uid="uid://d2kmj6iab4vtx" path="res://Assets/tres/Wrench(clicked).tres" id="9_7jv20"]
-[ext_resource type="StyleBox" uid="uid://bgysms4tt7803" path="res://Assets/tres/wrench(hover).tres" id="10_4joc1"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pn3g7"]
-texture = ExtResource("7_akae4")
-region_rect = Rect2(285.82385, 33.791912, 72.37906, 23.328625)
+[ext_resource type="Texture2D" uid="uid://q1dowtdgl1xl" path="res://Assets/Title/titles.png" id="3_4joc1"]
+[ext_resource type="StyleBox" uid="uid://d2q5m2w8s68d7" path="res://Assets/Button/play_normal.tres" id="4_5vlmh"]
+[ext_resource type="StyleBox" uid="uid://b30nasapq6tfy" path="res://Assets/Button/play_pressed.tres" id="4_7jv20"]
+[ext_resource type="StyleBox" uid="uid://catnol7o8wp1a" path="res://Assets/Button/play_hover.tres" id="5_4joc1"]
+[ext_resource type="StyleBox" uid="uid://ct1bao3hqb4ab" path="res://Assets/Button/exit_normal.tres" id="7_uyldf"]
+[ext_resource type="StyleBox" uid="uid://bdkffh3grswys" path="res://Assets/Button/exit_pressed.tres" id="8_41go8"]
+[ext_resource type="StyleBox" uid="uid://bftjis1gjvg7r" path="res://Assets/Button/exit_hover.tres" id="9_3ljom"]
+[ext_resource type="StyleBox" uid="uid://bcxkqas8fmalq" path="res://Assets/Button/setting_normal.tres" id="10_5vlmh"]
+[ext_resource type="StyleBox" uid="uid://6il4i4dsnu4t" path="res://Assets/Button/setting_pressed.tres" id="11_uyldf"]
+[ext_resource type="StyleBox" uid="uid://b841m7kcy1t3d" path="res://Assets/Button/setting_hover.tres" id="12_4joc1"]
 
 [node name="mainMenu" type="CanvasLayer" unique_id=395628767]
 script = ExtResource("1_7jv20")
@@ -29,9 +25,9 @@ grow_vertical = 2
 texture = ExtResource("2_4joc1")
 
 [node name="Title" type="Sprite2D" parent="." unique_id=2028152219]
-position = Vector2(531, 621)
-scale = Vector2(0.5, 0.53)
-texture = ExtResource("1_gjlcp")
+position = Vector2(600, 162)
+scale = Vector2(5.5, 5.83)
+texture = ExtResource("3_4joc1")
 
 [node name="Button" type="Control" parent="." unique_id=777470355]
 layout_mode = 3
@@ -46,20 +42,20 @@ offset_top = 303.0
 offset_right = 483.19998
 offset_bottom = 327.0
 scale = Vector2(5, 5)
-theme_override_styles/normal = ExtResource("2_ia1vu")
-theme_override_styles/pressed = ExtResource("3_n3vr4")
-theme_override_styles/hover = ExtResource("4_bvk1u")
+theme_override_styles/normal = ExtResource("4_5vlmh")
+theme_override_styles/pressed = ExtResource("4_7jv20")
+theme_override_styles/hover = ExtResource("5_4joc1")
 
 [node name="Exit" type="Button" parent="Button" unique_id=402599571]
 layout_mode = 0
-offset_left = 419.00003
-offset_top = 452.0
-offset_right = 479.2
-offset_bottom = 476.0
+offset_left = 425.0
+offset_top = 451.0
+offset_right = 485.19998
+offset_bottom = 475.0
 scale = Vector2(5, 5)
-theme_override_styles/normal = ExtResource("5_n3vr4")
-theme_override_styles/pressed = ExtResource("6_qk6at")
-theme_override_styles/hover = SubResource("StyleBoxTexture_pn3g7")
+theme_override_styles/normal = ExtResource("7_uyldf")
+theme_override_styles/pressed = ExtResource("8_41go8")
+theme_override_styles/hover = ExtResource("9_3ljom")
 
 [node name="Setting" type="Control" parent="." unique_id=969943699]
 layout_mode = 3
@@ -74,9 +70,9 @@ offset_top = 538.0
 offset_right = 1023.4
 offset_bottom = 558.19995
 scale = Vector2(5, 5)
-theme_override_styles/normal = ExtResource("8_4i55p")
-theme_override_styles/pressed = ExtResource("9_7jv20")
-theme_override_styles/hover = ExtResource("10_4joc1")
+theme_override_styles/normal = ExtResource("10_5vlmh")
+theme_override_styles/pressed = ExtResource("11_uyldf")
+theme_override_styles/hover = ExtResource("12_4joc1")
 
 [connection signal="pressed" from="Button/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Button/Exit" to="." method="_on_exit_pressed"]

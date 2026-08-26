@@ -16,6 +16,9 @@ extends StaticBody2D
 
 var is_broken: bool = false 
 
+func _ready():
+	add_to_group("enemies")
+
 func take_damage(amount: float, hit_position: Vector2 = Vector2.ZERO) -> void:
 	if is_broken:
 		return
